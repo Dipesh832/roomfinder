@@ -76,18 +76,18 @@ if(!array_filter($errors)){
         <form action="" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name: <span class="text-danger"><?=$errors['name'];?></span></label>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" class="form-control" value="<?=$old['name'];?>" name="name" id="name">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email:<span class="text-danger"><?=$errors['email'];?></span></label>
-                <input type="email" class="form-control" name="email" id="email">
+                <input type="email" class="form-control" value="<?=$old['email'];?>" name="email" id="email">
             </div>
             <div class="mb-3">
                 <label for="role" class="form-label">I am a</label>
                 <select name="role" id="role">
-                    <option value="">--Select Role--</option>
-                    <option value="tenant">Room Seeker</option>
-                    <option value="owner">Room Owner</option>
+                    <option value="" selected>--Select Role--</option>
+                    <option value="tenant" <?=$old['role']=='tenant' ? 'selected':''?>>Room Seeker</option>
+                    <option value="owner"<?=$old['role']=='owner' ? 'selected':''?>>Room Owner</option>
                 </select>
                 <span class="text-danger"><?=$errors['role'];?></span>
             </div>
