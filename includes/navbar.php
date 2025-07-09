@@ -1,3 +1,10 @@
+<?php
+
+require_once __DIR__ . '/../config/config.php';
+
+?>
+
+
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid gap-5 mx-5">
     <a class="navbar-brand text-primary fw-bold" href="">RoomFinder</a>
@@ -23,8 +30,10 @@
         </li>
    
       </ul>
-      <button type="button" class="btn btn-primary">Login</button>
-      <button type="button" class="btn btn-primary">Register</button>
+      <div>
+        <a href="<?=base_url('/auth/login.php');?>" class="btn btn-primary">Login</a>
+        <a href="<?=base_url('/auth/register.php');?>" class="btn btn-primary">Register</a>
+      </div>
     </div>
   </div>
 </nav>

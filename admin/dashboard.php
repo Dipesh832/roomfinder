@@ -1,1 +1,1 @@
-<h1>Welcome to admin panel</h1>
+<h1>Welcome to dashboard</h1>
