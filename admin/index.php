@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 
@@ -8,7 +10,7 @@ $page=$_GET['page'] ?? 'dashboard';
 $page=str_replace('.php','',$page);
 $title=ucfirst($page);
 $page=$page . '.php';
-$pagePath= __DIR__ . "/" .$page;
+$pagePath= __DIR__ . "/pages/" .$page;
 
 
 ?>
@@ -26,17 +28,18 @@ $pagePath= __DIR__ . "/" .$page;
     <header>
         <div class="container">
             <div class="text-center fw-bold">
-                    <a href="dashboard.php"><h1>Admin Panel: RoomFinder</h1></a>
+                    <h2 class="fw-bold d-4">Admin Panel</h2>
             </div>
             <div class="row">
-                <ul class="list-unstyled">
-                    <li><a href="rooms.php" class="text-decoration-none">Manage Rooms</a></li>
-                    <li><a href="users.php" class="text-decoration-none">Manage Users</a></li>
-                    <li><a href="" class="text-decoration-none">Manage Rooms</a></li>
-                    <li><a href="" class="text-decoration-none">logout</a></li>
+                <ul class="d-flex justify-content-center gap-3 list-unstyled">
+                    <li><a href="<?=base_url('admin/index.php?page=rooms')?>" class="text-decoration-none btn btn-primary">Manage Rooms</a></li>
+                    <li><a href="<?=base_url('admin/index.php?page=users')?>" class="text-decoration-none btn btn-primary">Manage Users</a></li>
+                    <li><a href="" class="text-decoration-none btn btn-primary">Manage Rooms</a></li>
+                    <li><a href="<?=base_url('auth/logout.php')?>" class="text-decoration-none btn btn-primary">logout</a></li>
                 </ul>
             </div>
         </div>
+        <hr>
     </header>
 
 <?php

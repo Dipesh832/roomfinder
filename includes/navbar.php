@@ -17,17 +17,12 @@ require_once __DIR__ . '/../config/config.php';
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Rooms/Listings</a>
+          <a class="nav-link" href="#rooms-listings">Rooms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">How It Works</a>
+          <a class="nav-link" href="#how-it-works">How It Works</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
+     
    
       </ul>
       <div>

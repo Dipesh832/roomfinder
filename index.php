@@ -30,9 +30,9 @@
     </div>
 
 </section>
-<section class="room-listing py-5">
+<section class="py-5" id="rooms-listings">
     <div class="container">
-        <h2 class="text-center text-primary mb-4">Available Rooms</h2>
+        <h2 class="text-center fw-bold text-primary mb-4">Available Rooms</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
@@ -50,6 +50,52 @@
     </div>
 
 </section>
+
+<section id="how-it-works" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4 fw-bold text-primary">How It Works</h2>
+        <p class="mb-5 text-muted">Whether you're looking for a room or listing one, RoomFinder makes it simple.</p>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-person-plus display-4 text-primary"></i>
+                        </div>
+                        <h5 class="card-title">1. Sign Up</h5>
+                        <p class="card-text">Register as a tenant or owner to get started with RoomFinder.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-house-door display-4 text-success"></i>
+                        </div>
+                        <h5 class="card-title">2. Post or Browse Rooms</h5>
+                        <p class="card-text">Owners can list rooms. Tenants can search based on location and type.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-chat-dots display-4 text-warning"></i>
+                        </div>
+                        <h5 class="card-title">3. Connect & Rent</h5>
+                        <p class="card-text">Contact the owner or tenant, visit the room, and finalize the deal easily.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 
 
