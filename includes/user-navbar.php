@@ -18,11 +18,9 @@ $userRole = $_SESSION['user']['role'] ?? '';
                 </li>
                 <?php if($userRole === 'owner') : ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Room Listings</a>
+                    <a class="nav-link" href="#room-listings">Room Listings</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Add New Room</a>
-                </li>
+    
                 <?php elseif($userRole === 'tenant') : ?>
 
                      <li class="nav-item">

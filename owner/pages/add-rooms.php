@@ -2,11 +2,14 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once __DIR__ . '/../config/config.php';
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/config.php';
+require_once __DIR__ . '/../../config/database.php';
 
 $sql = "SELECT * FROM users";
 $data = mysqli_query($conn, $sql);
+
+
+$errors = [];
 
 if (!empty($_POST)) {
     foreach ($_POST as $key => $value) {
@@ -22,7 +25,13 @@ if (!empty($_POST)) {
     $title = $_POST["title"];
     $location = $_POST["location"];
     $type = $_POST["type"];
-    $description = trim($_POST["description"]);
+    $validTypes = ['single', 'double', 'flat', 'shared'];
+    if (!in_array($_POST['type'], $validTypes)) {
+        $errors['type'] = "Invalid room type selected.";
+    }
+   
+
+    $facilities = trim($_POST["facilities"]);
     $rent = $_POST["rent"];
     $image = "";
     if (!empty($_FILES['image']['name'])) {
@@ -38,7 +47,7 @@ if (!empty($_POST)) {
             $_SESSION['error'] = "Image upload failed.";
         }
     }
-    $rSql = "INSERT INTO rooms(user_id,title,location,type,description,rent,image)VALUES('$userId','$title','$location','$type','$description','$rent','$image')";
+    $rSql = "INSERT INTO rooms(user_id,title,location,type,facilities,rent,image)VALUES('$userId','$title','$location','$type','$facilities','$rent','$image')";
     if (mysqli_query($conn, $rSql)) {
         $_SESSION['success'] = "Room added Successfully";
     } else {
@@ -60,16 +69,18 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-    <div class="container mt-5" style="max-width:800px">
+    <div class="container my-5" style="max-width:800px">
         <h2 class="text-center text-primary fw-bold">Add New Rooms</h2>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
+                <label for="title" class="form-label">Title:<span
+                        class="text-danger"><?= $errors['title'] ?? '' ?></span></label>
                 <input type="text" class="form-control" name="title" id="title"
                     placeholder="e.g.,Double Room Available in Baneshwor">
             </div>
             <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
+                <label for="location" class="form-label">Location:<span
+                        class="text-danger"><?= $errors['location'] ?? '' ?></span></label>
                 <input type="text" class="form-control" name="location" id="location" placeholder="e.g.,Kathmandu">
             </div>
             <div class="mb-3">
@@ -83,15 +94,18 @@ if (!empty($_POST)) {
                 </select>
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+                <label for="facilities" class="form-label">Facilities:<span
+                        class="text-danger"><?= $errors['facilities'] ?? '' ?></span></label>
+                <textarea name="facilities" id="facilities" class="form-control" rows="5"></textarea>
             </div>
             <div class="mb-3">
-                <label for="rent" class="form-label">Monthly Rent (Rs.)</label>
+                <label for="rent" class="form-label">Monthly Rent (Rs.): <span
+                        class="text-danger"><?= $errors['rent'] ?? '' ?></span></label>
                 <input type="number" class="form-control" name="rent" id="rent" placeholder="e.g.,10000">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Room Image</label>
+                <label for="image" class="form-label">Room Image:<span
+                        class="text-danger"><?= $errors['image'] ?? '' ?></span></label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
             <button class="btn btn-primary w-100">Post Room</button>
