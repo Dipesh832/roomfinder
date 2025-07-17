@@ -11,7 +11,7 @@ $res=mysqli_query($conn,$sql);
 if(!$res){
     echo 'Room not deleted';
 }else{
-    redirect('/owner/dashboard.php');
+    redirect('/admin/index.php');
     exit();
 }
 

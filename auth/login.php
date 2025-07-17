@@ -1,7 +1,20 @@
 <?php
 require_once __DIR__ . '/../config/config.php'; 
-require_once __DIR__ .'/../config/database.php';
 
+require_once __DIR__ .'/../config/database.php';
+if (isset($_SESSION['user'])) {
+    $role = $_SESSION['user']['role'];
+
+    if ($role === 'admin') {
+        redirect('admin/index.php');
+    } elseif ($role === 'owner') {
+        redirect('owner/dashboard.php');
+    } elseif ($role === 'tenant') {
+        redirect('tenant/dashboard.php');
+    } else {
+        redirect('/');
+    }
+}
 $errors = [
     'email' => '',
     'password' => ''

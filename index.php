@@ -15,10 +15,10 @@
                     <div class="col-md-3">
                         <select name="room-type" id="room-type" class="form-control">
                             <option value="">Select Room Type</option>
-                            <option value="single_room">Single Room</option>
+                            <option value="single">Single Room</option>
                             <option value="flat">Flat</option>
-                            <option value="shared_room">Shared Room</option>
-                            <option value="double_room">Double Room</option>
+                            <option value="shared">Shared Room</option>
+                            <option value="double">Double Room</option>
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -30,25 +30,10 @@
     </div>
 
 </section>
+
 <section class="py-5" id="rooms-listings">
-    <div class="container">
-        <h2 class="text-center fw-bold text-primary mb-4">Available Rooms</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
-
+<?php include_once __DIR__ . '/pages/rooms-card.php'; ?>
 </section>
 
 <section id="how-it-works" class="py-5 bg-light">

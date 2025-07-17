@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/config.php';
-require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
 
 $sql = "SELECT * FROM rooms";
 $roomsData = mysqli_query($conn, $sql);
@@ -24,7 +24,7 @@ $roomsData = mysqli_query($conn, $sql);
                                 <strong>Location:</strong> <?= htmlspecialchars($rooms['location']) ?><br>
                                 <strong>Rent:</strong> <?= number_format($rooms['rent']) ?><br>
                             </p>
-                            <a href="<?=base_url('/tenant/pages/rooms-details.php?id='.$rooms['id'])?>" class="btn btn-primary">Details</a>
+                            <a href="<?=base_url('/pages/rooms-details.php?id='.$rooms['id'])?>" class="btn btn-primary">Details</a>
                             <a href="#" class="btn btn-success">Book Now</a>
                         </div>
                     </div>

@@ -1,5 +1,8 @@
 <?php require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ .'/../config/database.php';
 
+
+$user = $_SESSION['user'] ?? null;
 $userRole = $_SESSION['user']['role'] ?? '';
 ?>
 
@@ -38,18 +41,21 @@ $userRole = $_SESSION['user']['role'] ?? '';
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="<?=base_url('/image/avatar.jpg');?>" alt="Avatar" class="rounded-circle" width="32"
                         height="32">
-                    <span>Profile</span>
+              <span><?= htmlspecialchars($user['name'] ?? 'Profile'); ?></span>
+
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
                         <h6 class="dropdown-header">Welcome!</h6>
                     </li>
-                    <li><span class="dropdown-item-text"><strong>Name:</strong> Dipesh Tharu</span></li>
-                    <li><span class="dropdown-item-text"><strong>Email:</strong> dipesh@example.com</span></li>
+                    <li><span class="dropdown-item-text"><strong>Name:</strong><?= htmlspecialchars($user['name'] ?? 'Guest'); ?></span>
+</span></li>
+                    <li><span class="dropdown-item-text"><strong>Email:</strong><?= htmlspecialchars($user['email'] ?? ' '); ?></span>
+</span></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item text-danger" href="redirect('logout.php');">Logout</a></li>
+                    <li><a class="dropdown-item text-danger" href="<?= base_url('/auth/logout.php') ?>">Logout</a></li>
                 </ul>
             </div>
 
