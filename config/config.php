@@ -13,7 +13,7 @@ function messages(){
   $outPut="";
   if(isset($_SESSION['success'])){
     $outPut.='<div class="alert alert-success">'.$_SESSION['success'].'</div>';
-    unset($_SESSION['success']);
+    unset($_SESSION['success']);  
   }
   if(isset($_SESSION['error'])){
     $outPut.='<div class="alert alert-danger">'.$_SESSION['error'].'</div>';

@@ -33,7 +33,7 @@ if (!empty($_POST)) {
 
     $facilities = trim($_POST["facilities"]);
     $rent = $_POST["rent"];
-    $image = "";
+    $image = "";    
     if (!empty($_FILES['image']['name'])) {
         $name = $_FILES['image']['name'];
         $ext = pathinfo($name, PATHINFO_EXTENSION);

@@ -46,7 +46,7 @@ if (!$rooms) {
                     <p><strong>Location:</strong> <?= htmlspecialchars($rooms['location']) ?></p>
                     <p><strong>Monthly Rent(Rs.):</strong> <?= number_format($rooms['rent']) ?></p>
                     <p><strong>Facilities:</strong> <?= htmlspecialchars($rooms['facilities']) ?></p>
-                    <a href="" class="btn btn-success">Book Now</a>
+                    <a href="<?=base_url('/tenant/pages/book-now.php?id='.$rooms['id'])?>" class="btn btn-success">Book Now</a>
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ $roomsData = mysqli_query($conn, $sql);
                                 <strong>Rent:</strong> <?= number_format($rooms['rent']) ?><br>
                             </p>
                             <a href="<?=base_url('/tenant/pages/rooms-details.php?id='.$rooms['id'])?>" class="btn btn-primary">Details</a>
-                            <a href="#" class="btn btn-success">Book Now</a>
+                            <a href="<?=base_url('/tenant/pages/book-now.php?id='.$rooms['id'])?>" class="btn btn-success">Book Now</a>
                         </div>
                     </div>
                 </div>

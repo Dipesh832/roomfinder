@@ -3,9 +3,9 @@
 require_once __DIR__ . '/../../config/config.php';
 require_once __DIR__ . '/../../config/database.php';
 
-$id=$_GET['id'];
+$Room_id=$_GET['id'];
 
-$sql = "DELETE FROM rooms WHERE id=$id";
+$sql = "DELETE FROM rooms WHERE id=$Room_id";
 
 $res=mysqli_query($conn,$sql);
 if(!$res){

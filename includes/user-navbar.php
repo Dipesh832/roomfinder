@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/../config/config.php';
-require_once __DIR__ .'/../config/database.php';
+require_once __DIR__ . '/../config/database.php';
 
 
 $user = $_SESSION['user'] ?? null;
@@ -19,19 +19,22 @@ $userRole = $_SESSION['user']['role'] ?? '';
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                <?php if($userRole === 'owner') : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="#room-listings">Room Listings</a>
-                </li>
-    
-                <?php elseif($userRole === 'tenant') : ?>
+                <?php if ($userRole === 'owner'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#room-listings">Room Listings</a>
+                    </li>
 
-                     <li class="nav-item">
-                    <a class="nav-link" href="#">Browse Rooms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My bookings</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/owner/pages/bookings.php') ?>">Bookings</a>
+                    </li>
+                <?php elseif ($userRole === 'tenant'): ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Browse Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/tenant/pages/my_bookings.php') ?>">My bookings</a>
+                    </li>
 
                 <?php endif; ?>
 
@@ -39,19 +42,21 @@ $userRole = $_SESSION['user']['role'] ?? '';
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="<?=base_url('/image/avatar.jpg');?>" alt="Avatar" class="rounded-circle" width="32"
+                    <img src="<?= base_url('/image/avatar.jpg'); ?>" alt="Avatar" class="rounded-circle" width="32"
                         height="32">
-              <span><?= htmlspecialchars($user['name'] ?? 'Profile'); ?></span>
+                    <span><?= htmlspecialchars($user['name'] ?? 'Profile'); ?></span>
 
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
                         <h6 class="dropdown-header">Welcome!</h6>
                     </li>
-                    <li><span class="dropdown-item-text"><strong>Name:</strong><?= htmlspecialchars($user['name'] ?? 'Guest'); ?></span>
-</span></li>
-                    <li><span class="dropdown-item-text"><strong>Email:</strong><?= htmlspecialchars($user['email'] ?? ' '); ?></span>
-</span></li>
+                    <li><span
+                            class="dropdown-item-text"><strong>Name:</strong><?= htmlspecialchars($user['name'] ?? 'Guest'); ?></span>
+                        </span></li>
+                    <li><span
+                            class="dropdown-item-text"><strong>Email:</strong><?= htmlspecialchars($user['email'] ?? ' '); ?></span>
+                        </span></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
